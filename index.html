@@ -66,13 +66,19 @@
   .serif-it{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
   .serif{font-family:'Playfair Display',serif;font-weight:500}
 
-  /* gold ornament divider */
+  /* gold ornament divider — leafy branch */
   .divider{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    margin:18px auto;width:80%;max-width:260px;
+    margin:18px auto;
+    width:88%;max-width:300px;
+    color:var(--gold);
+    line-height:0;
   }
-  .divider .ln{flex:1;height:1px;background:var(--line)}
-  .divider svg{width:22px;height:22px;color:var(--gold);flex:0 0 auto}
+  .divider svg{width:100%;height:auto;display:block}
+  .divider.rings{max-width:240px;margin:24px auto;color:var(--gold)}
+  /* invite section uses navy rings on cream */
+  #invite .divider.rings{color:var(--navy);opacity:.85}
+  /* venue divider sits tighter under the title */
+  #venue .divider{max-width:240px;margin-top:12px;margin-bottom:8px}
 
   /* ───── 1. ENVELOPE ───── */
   #envelope{
@@ -132,7 +138,7 @@
     z-index:2;
     color:var(--gold);
   }
-  .env-mono svg{width:100%;height:auto;display:block}
+  .env-mono img,.env-mono svg{width:100%;height:auto;display:block}
   .env-tap{
     margin-top:36px;
     font-family:'Playfair Display',serif;
@@ -168,8 +174,8 @@
     min-height:100vh;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
   }
-  .monogram{width:160px;color:var(--navy);margin-bottom:18px}
-  .monogram svg{width:100%;height:auto;display:block}
+  .monogram{width:230px;margin-bottom:14px}
+  .monogram img,.monogram svg{width:100%;height:auto;display:block}
   .cover-names{
     font-family:'Playfair Display',serif;
     font-style:italic;
@@ -255,8 +261,8 @@
     background:var(--cream);
     padding:88px 28px;
   }
-  .invite-mono{width:80px;margin:0 auto 28px;color:var(--navy)}
-  .invite-mono svg{width:100%;height:auto;display:block}
+  .invite-mono{width:140px;margin:0 auto 24px}
+  .invite-mono img,.invite-mono svg{width:100%;height:auto;display:block}
   .invite-greet{
     font-family:'Playfair Display',serif;
     font-style:italic;
@@ -410,8 +416,10 @@
     background:var(--cream);
     padding:60px 28px 80px;
   }
-  .footer-mono{width:80px;margin:0 auto 18px;color:var(--navy)}
-  .footer-mono svg{width:100%;height:auto;display:block}
+  .footer-mono{width:140px;margin:0 auto 18px}
+  .footer-mono img,.footer-mono svg{width:100%;height:auto;display:block}
+  .footer-rings{width:200px;margin:0 auto 14px;color:var(--gold);opacity:.8}
+  .footer-rings svg{width:100%;height:auto;display:block}
   .footer-line{
     font-family:'Playfair Display',serif;
     font-style:italic;
@@ -432,6 +440,53 @@
 </head>
 <body class="locked">
 
+<!-- ──────── SVG SPRITE (leaf branch, rings) ──────── -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="lfs">
+      <path d="M-5.5 0 Q-2 -1.9 0 -2.1 Q 3 -1.8 5.5 0 Q 3 1.8 0 2.1 Q -2 1.9 -5.5 0 Z" fill="currentColor"/>
+    </g>
+    <g id="bud"><circle r="1.5" fill="currentColor"/></g>
+
+    <!-- ░░ LEAF-BRANCH DIVIDER ░░ -->
+    <symbol id="leaf-branch" viewBox="0 0 240 30">
+      <line x1="22" y1="15" x2="218" y2="15" stroke="currentColor" stroke-width=".8" stroke-linecap="round"/>
+      <!-- center diamond/star -->
+      <path d="M120 8 L124 15 L120 22 L116 15 Z" fill="currentColor"/>
+      <circle cx="120" cy="15" r="1" fill="currentColor"/>
+      <!-- left side leaves -->
+      <use href="#lfs" transform="translate(38 15) rotate(-25)"/>
+      <use href="#lfs" transform="translate(54 15) rotate(20)"/>
+      <use href="#lfs" transform="translate(70 15) rotate(-25)"/>
+      <use href="#lfs" transform="translate(86 15) rotate(20)"/>
+      <use href="#lfs" transform="translate(102 15) rotate(-25)"/>
+      <!-- right side leaves -->
+      <use href="#lfs" transform="translate(138 15) rotate(25)"/>
+      <use href="#lfs" transform="translate(154 15) rotate(-20)"/>
+      <use href="#lfs" transform="translate(170 15) rotate(25)"/>
+      <use href="#lfs" transform="translate(186 15) rotate(-20)"/>
+      <use href="#lfs" transform="translate(202 15) rotate(25)"/>
+      <!-- end buds -->
+      <use href="#bud" transform="translate(22 15)"/>
+      <use href="#bud" transform="translate(218 15)"/>
+    </symbol>
+
+    <!-- ░░ INTERLOCKING RINGS — continuous-line art ░░ -->
+    <symbol id="rings-art" viewBox="0 0 240 70">
+      <!-- left swirl -->
+      <path d="M6 35 Q 22 28 38 32 Q 52 36 58 38" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+      <!-- left ring -->
+      <ellipse cx="100" cy="36" rx="26" ry="14" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <!-- right ring (interlocked, slightly larger) -->
+      <ellipse cx="142" cy="36" rx="26" ry="14" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <!-- subtle highlight to suggest interlock -->
+      <path d="M124 24 Q 128 27 130 32" fill="none" stroke="#fdfaf3" stroke-width="2"/>
+      <!-- right swirl -->
+      <path d="M168 38 Q 180 36 196 32 Q 218 28 234 36" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
 <div class="frame">
 
   <!-- ░░░ 1. ENVELOPE OVERLAY ░░░ -->
@@ -441,31 +496,7 @@
       <div class="env">
         <div class="paper"></div>
         <div class="env-mono" aria-hidden="true">
-          <!-- SM monogram in laurel wreath, gold -->
-          <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <!-- left laurel -->
-            <path d="M52 80 C 38 60, 38 40, 60 28"/>
-            <path d="M50 72 C 42 70, 38 64, 40 58" />
-            <path d="M48 64 C 40 60, 38 54, 42 48" />
-            <path d="M48 56 C 42 52, 40 46, 46 40" />
-            <path d="M50 48 C 46 42, 46 36, 52 32" />
-            <path d="M55 42 C 52 36, 54 30, 60 28" />
-            <!-- right laurel -->
-            <path d="M148 80 C 162 60, 162 40, 140 28"/>
-            <path d="M150 72 C 158 70, 162 64, 160 58" />
-            <path d="M152 64 C 160 60, 162 54, 158 48" />
-            <path d="M152 56 C 158 52, 160 46, 154 40" />
-            <path d="M150 48 C 154 42, 154 36, 148 32" />
-            <path d="M145 42 C 148 36, 146 30, 140 28" />
-            <!-- top star/dot -->
-            <circle cx="100" cy="24" r="1.6" fill="currentColor" stroke="none"/>
-            <!-- bottom curve -->
-            <path d="M52 86 C 70 110, 130 110, 148 86"/>
-            <!-- SM letters -->
-            <text x="100" y="92" text-anchor="middle"
-                  font-family="Playfair Display, serif" font-style="italic" font-size="44" font-weight="500"
-                  fill="currentColor" stroke="none">SM</text>
-          </svg>
+          <img src="assets/sm-wreath.png" alt="" loading="eager" decoding="async">
         </div>
       </div>
       <div class="env-flap" aria-hidden="true"></div>
@@ -476,35 +507,15 @@
   <!-- ░░░ 2. COVER ░░░ -->
   <section id="cover">
     <div class="monogram reveal-up" aria-hidden="true">
-      <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M52 80 C 38 60, 38 40, 60 28"/>
-        <path d="M50 72 C 42 70, 38 64, 40 58" />
-        <path d="M48 64 C 40 60, 38 54, 42 48" />
-        <path d="M48 56 C 42 52, 40 46, 46 40" />
-        <path d="M50 48 C 46 42, 46 36, 52 32" />
-        <path d="M55 42 C 52 36, 54 30, 60 28" />
-        <path d="M148 80 C 162 60, 162 40, 140 28"/>
-        <path d="M150 72 C 158 70, 162 64, 160 58" />
-        <path d="M152 64 C 160 60, 162 54, 158 48" />
-        <path d="M152 56 C 158 52, 160 46, 154 40" />
-        <path d="M150 48 C 154 42, 154 36, 148 32" />
-        <path d="M145 42 C 148 36, 146 30, 140 28" />
-        <circle cx="100" cy="24" r="1.6" fill="currentColor" stroke="none"/>
-        <path d="M52 86 C 70 110, 130 110, 148 86"/>
-        <text x="100" y="92" text-anchor="middle"
-              font-family="Playfair Display, serif" font-style="italic" font-size="44" font-weight="500"
-              fill="currentColor" stroke="none">SM</text>
-      </svg>
+      <img src="assets/sm-wreath.png" alt="" loading="eager" decoding="async">
     </div>
     <h1 class="cover-names reveal-up d1">
       Sunnatbek
       <span class="cover-amp serif-it">&amp;</span>
       Maftunaxon
     </h1>
-    <div class="divider reveal-up d2">
-      <span class="ln"></span>
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4 L13 11 L20 12 L13 13 L12 20 L11 13 L4 12 L11 11 Z"/></svg>
-      <span class="ln"></span>
+    <div class="divider reveal-up d2" aria-hidden="true">
+      <svg viewBox="0 0 240 30"><use href="#leaf-branch"/></svg>
     </div>
     <div class="cover-sub reveal-up d3">06 &middot; 06 &middot; 2026</div>
     <div class="scroll-hint reveal-up d4">
@@ -528,25 +539,15 @@
   <!-- ░░░ 4. INVITATION TEXT ░░░ -->
   <section id="invite">
     <div class="invite-mono reveal-up" aria-hidden="true">
-      <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M52 80 C 38 60, 38 40, 60 28"/>
-        <path d="M148 80 C 162 60, 162 40, 140 28"/>
-        <circle cx="100" cy="24" r="1.6" fill="currentColor" stroke="none"/>
-        <path d="M52 86 C 70 110, 130 110, 148 86"/>
-        <text x="100" y="92" text-anchor="middle"
-              font-family="Playfair Display, serif" font-style="italic" font-size="44" font-weight="500"
-              fill="currentColor" stroke="none">SM</text>
-      </svg>
+      <img src="assets/sm-wreath.png" alt="" loading="eager" decoding="async">
     </div>
     <p class="invite-greet reveal-up d1">Hurmatli mehmon!</p>
     <p class="invite-body reveal-up d2">
       Sizni aziz farzandlarimizning nikoh to'ylari munosabati bilan bo'lib o'tadigan
       <em>&laquo;Visol oqshomi&raquo;</em> ga taklif etamiz.
     </p>
-    <div class="divider reveal-up d3">
-      <span class="ln"></span>
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4 L13 11 L20 12 L13 13 L12 20 L11 13 L4 12 L11 11 Z"/></svg>
-      <span class="ln"></span>
+    <div class="divider rings reveal-up d3" aria-hidden="true">
+      <svg viewBox="0 0 240 70"><use href="#rings-art"/></svg>
     </div>
     <div class="invite-date reveal-up d3">06 &nbsp;|&nbsp; 06 &nbsp;|&nbsp; 2026</div>
     <div class="invite-time reveal-up d3">SOAT 19:00</div>
@@ -589,10 +590,8 @@
   <section id="venue">
     <div class="small-cap reveal-up">Manzil</div>
     <h2 class="reveal-up d1">To'y manzili</h2>
-    <div class="divider reveal-up d1" style="margin-top:14px">
-      <span class="ln"></span>
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4 L13 11 L20 12 L13 13 L12 20 L11 13 L4 12 L11 11 Z"/></svg>
-      <span class="ln"></span>
+    <div class="divider reveal-up d1" style="margin-top:14px" aria-hidden="true">
+      <svg viewBox="0 0 240 30"><use href="#leaf-branch"/></svg>
     </div>
     <div class="venue-name reveal-up d2">ZAMIN</div>
     <div class="venue-near reveal-up d2">restorani &middot; mo'ljal: O'zbekfilm</div>
@@ -647,16 +646,13 @@
   <!-- ░░░ 7. FOOTER ░░░ -->
   <section id="footer">
     <div class="footer-mono reveal-up" aria-hidden="true">
-      <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="100" cy="24" r="1.6" fill="currentColor" stroke="none"/>
-        <path d="M52 86 C 70 110, 130 110, 148 86"/>
-        <text x="100" y="92" text-anchor="middle"
-              font-family="Playfair Display, serif" font-style="italic" font-size="44" font-weight="500"
-              fill="currentColor" stroke="none">SM</text>
-      </svg>
+      <img src="assets/sm-wreath.png" alt="" loading="eager" decoding="async">
     </div>
-    <div class="footer-line reveal-up d1">Sizni kutib qolamiz &#10084;</div>
-    <div class="footer-mini reveal-up d2">Made with love</div>
+    <div class="footer-rings reveal-up d1" aria-hidden="true">
+      <svg viewBox="0 0 240 70"><use href="#rings-art"/></svg>
+    </div>
+    <div class="footer-line reveal-up d2">Sizni kutib qolamiz &#10084;</div>
+    <div class="footer-mini reveal-up d3">Made with love</div>
   </section>
 
 </div>
