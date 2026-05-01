@@ -73,12 +73,10 @@
     color:var(--gold);
     line-height:0;
   }
-  .divider svg,.divider img{width:100%;height:auto;display:block}
+  .divider svg{width:100%;height:auto;display:block}
   .divider.rings{max-width:240px;margin:24px auto;color:var(--gold)}
-  .divider.rings img{max-width:320px;margin:0 auto}
   /* invite section uses navy rings on cream */
   #invite .divider.rings{color:var(--navy);opacity:.85}
-  #invite .divider.rings{max-width:320px}
   /* venue divider sits tighter under the title */
   #venue .divider{max-width:240px;margin-top:12px;margin-bottom:8px}
 
@@ -420,8 +418,8 @@
   }
   .footer-mono{width:140px;margin:0 auto 18px}
   .footer-mono img,.footer-mono svg{width:100%;height:auto;display:block}
-  .footer-rings{width:260px;margin:0 auto 14px;color:var(--gold);opacity:.85}
-  .footer-rings svg,.footer-rings img{width:100%;height:auto;display:block}
+  .footer-rings{width:200px;margin:0 auto 14px;color:var(--gold);opacity:.8}
+  .footer-rings svg{width:100%;height:auto;display:block}
   .footer-line{
     font-family:'Playfair Display',serif;
     font-style:italic;
@@ -549,7 +547,7 @@
       <em>&laquo;Visol oqshomi&raquo;</em> ga taklif etamiz.
     </p>
     <div class="divider rings reveal-up d3" aria-hidden="true">
-      <img src="assets/wedding-rings.png" alt="" loading="lazy" decoding="async">
+      <svg viewBox="0 0 240 70"><use href="#rings-art"/></svg>
     </div>
     <div class="invite-date reveal-up d3">06 &nbsp;|&nbsp; 06 &nbsp;|&nbsp; 2026</div>
     <div class="invite-time reveal-up d3">SOAT 19:00</div>
@@ -592,8 +590,8 @@
   <section id="venue">
     <div class="small-cap reveal-up">Manzil</div>
     <h2 class="reveal-up d1">To'y manzili</h2>
-    <div class="divider reveal-up d1" style="margin-top:14px;max-width:280px" aria-hidden="true">
-      <img src="assets/divider-gold.png" alt="" loading="lazy" decoding="async">
+    <div class="divider reveal-up d1" style="margin-top:14px" aria-hidden="true">
+      <svg viewBox="0 0 240 30"><use href="#leaf-branch"/></svg>
     </div>
     <div class="venue-name reveal-up d2">ZAMIN</div>
     <div class="venue-near reveal-up d2">restorani &middot; mo'ljal: O'zbekfilm</div>
@@ -651,7 +649,7 @@
       <img src="assets/sm-wreath.png" alt="" loading="eager" decoding="async">
     </div>
     <div class="footer-rings reveal-up d1" aria-hidden="true">
-      <img src="assets/footer-hearts.png" alt="" loading="lazy" decoding="async">
+      <svg viewBox="0 0 240 70"><use href="#rings-art"/></svg>
     </div>
     <div class="footer-line reveal-up d2">Sizni kutib qolamiz &#10084;</div>
     <div class="footer-mini reveal-up d3">Made with love</div>
